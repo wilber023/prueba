@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Código QR con Imagen Destacada</title>
+    <style>
+        /* Estilo para centrar la imagen en el QR */
+        #qrcode {
+            position: relative;
+            width: 128px;
+            height: 128px;
+        }
+
+        #qrcode canvas {
+            opacity: 0; /* Hacer que el QR sea semitransparente */
+        }
+
+        #qrcode img.overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px; /* Tamaño más grande para destacar la imagen */
+            height: 80px;
+           /* Para que la imagen no bloquee la interacción con el QR */
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de Código QR con Imagen Destacada</h1>
+
+    <!-- Contenedor para el código QR -->
+    <div id="qrcode"></div>
+
+    <!-- Botón para generar el código QR -->
+    <input type="text" id="qrText" placeholder="Ingresa el texto o URL">
+    <button onclick="generateQRCode()">Generar Código QR</button>
+
+    <!-- Incluir la biblioteca QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        // Función para generar el código QR
+        function generateQRCode() {
+            // Obtén el texto del campo de entrada
+            var text = document.getElementById("qrText").value;
+
+            // Selecciona el contenedor donde se generará el QR
+            var qrcodeContainer = document.getElementById('qrcode');
+            
+            // Limpia cualquier código QR previamente generado
+            qrcodeContainer.innerHTML = "";
+
+            // Genera el nuevo código QR
+            var qrcode = new QRCode(qrcodeContainer, {
+                text: text,       // El texto que quieres codificar
+                width: 128,       // Ancho del código QR
+                height: 128,      // Altura del código QR
+                colorDark : "#000000",  // Color del QR
+                colorLight : "#ffffff", // Color de fondo
+                correctLevel : QRCode.CorrectLevel.H  // Nivel de corrección de errores
+            });
+
+            // Crear y agregar la imagen en el centro del QR
+            var img = document.createElement("img");
+            img.src = "https://img.icons8.com/ios-filled/100/000000/laptop.png"; // URL de la imagen de la laptop
+            img.className = "overlay";
+            qrcodeContainer.appendChild(img);
+        }
+    </script>
+</body>
+</html>

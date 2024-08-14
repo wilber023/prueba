@@ -1,0 +1,60 @@
+h1{
+    text-align: center;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    font-size: 40px;
+}
+
+button{
+    margin-top: 30px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(41, 149, 216, 0.754);
+    color: white;
+}
+
+button:hover {
+    background-color: green;
+}
+
+ 
+a{
+    text-decoration: none;
+    color: white;
+}
+
+li{
+    text-decoration: none;
+}
+ 
+
+.fondo-img{
+    background-image: url('../img/Buny.jpg');
+    background-repeat: no-repeat;
+    padding: 10px;
+    position: absolute;
+    width: 100vw;
+    height: 450px;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+}
+
+footer{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.685);
+    height: 150px;
+    align-items: center;
+    margin-top: 100%;
+    display: flex;
+
+}
+
+ul{
+    gap: 50px;
+    text-decoration: none;
+}
